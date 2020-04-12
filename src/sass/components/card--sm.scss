@@ -1,0 +1,230 @@
+// ========== Grid ============
+.card-sm__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
+  grid-template-rows: repeat(2, max-content);
+  justify-content: space-evenly;
+  margin-bottom: 25rem;
+  @include respond(tab-port) {
+    grid-template-columns: repeat(2, minmax(33rem, 35rem));
+    grid-template-rows: repeat(4, minmax(27rem, min-content));
+    grid-column-gap: 3rem;
+    justify-content: space-evenly;
+    margin-bottom: 0;
+  }
+}
+.card--1 {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  @include respond(tab-port) {
+    grid-row: 1/2;
+    padding-bottom: 2rem; //use this to create space below text in the cards
+  }
+}
+.card--2 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  @include respond(tab-port) {
+    grid-row: 2/3;
+    transform: translateY(-15rem);
+  }
+  @include respond(phone) {
+    transform: translate(0);
+  }
+}
+.card--3 {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  @include respond(tab-port) {
+    grid-row: 3/4;
+    grid-column: 1/2;
+    padding-bottom: 2rem; //use this to create space below text in the cards
+    transform: translateY(-17.5rem);
+  }
+  @include respond(phone) {
+    transform: translate(0);
+  }
+}
+.card--4 {
+  grid-row: 1/2;
+  grid-column: 4/5;
+  @include respond(tab-port) {
+    grid-row: 4/5;
+    grid-column: 2/3;
+    transform: translateY(-24.5rem);
+  }
+  @include respond(phone) {
+    transform: translate(0);
+  }
+}
+
+.works__card {
+  width: 100%;
+  height: 90%;
+  border-radius: 45px 45px 45px 0px;
+  box-shadow: var(--shadow);
+
+  display: grid;
+  grid-template-columns: repeat(1, 25rem);
+  grid-template-rows: repeat(3, max-content);
+  justify-content: center;
+  grid-row-gap: 1rem;
+  @include respond(tab-land) {
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  }
+  @include respond(tab-port) {
+    grid-gap: 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &--white {
+    background-color: var(--clr-white);
+    border: 1px solid var(--clr-white);
+  }
+
+  &--orange {
+    background-color: var(--clr-pri);
+    border: 1px solid var(--clr-pri);
+    color: var(--clr-white);
+  }
+
+  .works__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-5rem);
+
+    &--4 {
+      transform: translateY(-7rem);
+    }
+  }
+
+  // ========== Icons ==============
+  .works__icon--1 {
+    width: 24rem;
+    transform: translateY(-1rem);
+  }
+  .works__icon--2 {
+    width: 18rem;
+    transform: translateY(-1rem);
+  }
+  .works__icon--3 {
+    width: 16rem;
+    transform: translateY(-1rem);
+  }
+  .works__icon--4 {
+    width: 17rem;
+    transform: translateY(-1rem);
+  }
+
+  // ========== Card Titles =============
+  .works__title {
+    text-align: center;
+    margin-bottom: 1rem;
+    @include respond(tab-land) {
+      padding: 0 0.7rem;
+    }
+  }
+
+  // =========== Card Text ===========
+  .works__text {
+    text-align: center;
+
+    @include respond(tab-land) {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* enable Flickity by default */
+.gallery:after {
+  content: "flickity";
+  display: none; /* hide :after */
+}
+
+@media screen and (min-width: 601px) {
+  /* disable Flickity for large devices */
+  .gallery:after {
+    content: "";
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .flickity-enabled.is-draggable {
+    margin-top: 6rem;
+  }
+  .flickity-prev-next-button {
+    top: 105.4% !important;
+    transform: translateY(0) !important;
+    z-index: 100;
+  }
+
+  .flickity-page-dots {
+    bottom: -50px !important;
+  }
+
+  .flickity-button {
+    color: var(--clr-pri) !important;
+    background-color: transparent !important;
+  }
+  .flickity-prev-next-button .flickity-button-icon {
+    width: 80%;
+    height: 80%;
+  }
+
+  .flickity-page-dots .dot {
+    background: var(--clr-pri) !important;
+  }
+
+  .gallery {
+    background: var(--clr-ter--light) !important;
+    height: 100% !important;
+  } //height of grey
+
+  .gallery-cell.works__card {
+    width: 90%;
+    height: 375px;
+    margin-right: 10px;
+    background: var(--clr-white);
+    border: solid 1px var(--navbar-grey);
+    color: var(--clr-black);
+    counter-increment: gallery-cell;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: solid 1px #e85718;
+  } // moving the green and the view point of the cards
+
+  .works__card .works__content {
+    transform: translate(0);
+    padding-top: 40px;
+  }
+  .works__card .works__title {
+    margin: 10px 0;
+    padding: 0;
+    color: darken($--clr-pri, 3%);
+  }
+
+  .works__card .works__text {
+    width: 75%;
+  }
+
+  .works__card .works__icon--1 {
+    transform: translate(0);
+    width: 65%;
+  }
+  .works__card .works__icon--2 {
+    transform: translate(0);
+    width: 45%;
+  }
+  .works__card .works__icon--3 {
+    transform: translate(0);
+    width: 45%;
+  }
+  .works__card .works__icon--4 {
+    transform: translate(0);
+    width: 45%;
+  }
+}

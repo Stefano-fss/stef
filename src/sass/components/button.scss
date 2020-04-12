@@ -1,0 +1,159 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    font-family: var(--default-font);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &::after {
+    @include gloss;
+  }
+
+  &:hover {
+    &::after {
+      @include gloss-hover;
+    }
+  }
+
+  .hover-text {
+    z-index: 40;
+  }
+
+  //   ========= Btn Size ============
+  &--sm {
+    padding: 1rem 0;
+    font-size: var(--default-font-size);
+    width: 16rem;
+  }
+
+  &--md {
+    padding: 1.5rem 0;
+    font-size: var(--h4-font);
+    width: 22rem;
+
+    @include respond(tab-port) {
+      font-size: var(--h3-font);
+      width: 25rem;
+      height: 9rem;
+      line-height: 9rem;
+      padding: 0;
+    }
+
+    @include respond(phone) {
+      font-size: var(--h3-font);
+      width: 25rem;
+      height: 9rem;
+      line-height: 9rem;
+      padding: 0;
+    }
+  }
+
+  &--lg {
+    font-size: var(--h3-font);
+    width: 25rem;
+    height: 7rem;
+    line-height: 7rem;
+    @include respond(phone) {
+      line-height: 9rem;
+    }
+  }
+
+  //   ========= Btn Color ============
+  &--trans {
+    background-color: var(--clr-trans);
+  }
+
+  &--brd-white {
+    color: var(--clr-white);
+    border: solid 1px var(--clr-white);
+    background-position: 100% 0;
+  }
+
+  &--brd-blue {
+    color: var(--clr-sec);
+    border: solid 1px var(--clr-sec);
+  }
+
+  &--blue {
+    color: var(--clr-white);
+    background-color: var(--clr-sec);
+    border: var(--clr-sec);
+  }
+
+  &--orange {
+    color: var(--clr-white);
+    background-color: var(--clr-pri);
+  }
+
+  &__clr-strip {
+    margin: 3rem;
+
+    @include respond(phone) {
+      line-height: 7rem;
+      margin: 3rem 1.3rem 0rem 1.3rem;
+    }
+  }
+}
+
+.button {
+  &--square {
+    text-decoration: none;
+    font-family: var(--default-font);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0;
+    color: var(--clr-pri);
+    display: block;
+    border-bottom: 1px solid var(--clr-pri);
+    padding: 5px 5px;
+    transition: all 0.3s;
+
+    &--sm {
+      width: 13rem;
+      @include respond(tab-land) {
+        width: 14rem;
+      }
+      @include respond(tab-port) {
+        width: 16rem;
+      }
+    }
+    &--lg {
+      width: 16rem;
+      @include respond(tab-land) {
+        width: 18rem;
+      }
+      @include respond(tab-port) {
+        width: 20rem;
+      }
+    }
+    &:hover,
+    :focus {
+      background-color: var(--clr-pri);
+      color: var(--clr-white);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+      transform: translateY(-3px);
+      transition: all 0.3s;
+      @include respond(tab-port) {
+        background-color: var(--white);
+        color: var(--clr-pri);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        transform: translateY(0px);
+        transition: all 0;
+      }
+    }
+
+    &:active {
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      transform: translateY(0);
+      @include respond(tab-port) {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      }
+    }
+  }
+}

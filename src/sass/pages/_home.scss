@@ -1,0 +1,55 @@
+.navbar {
+  width: 100%;
+  padding: 1.6rem 3rem;
+  @include respond(phone) {
+    padding: 1.6rem 2rem;
+  }
+}
+
+.header {
+  background-color: $--clr-pri;
+  height: 100vh;
+
+  @include respond(tab-land) {
+    height: 95vh;
+  }
+
+  @include respond(tab-port) {
+    height: 85rem;
+  }
+  @media (max-width: 47.95em) {
+    height: 60vh;
+  }
+  @include respond(phone) {
+    height: 100vh;
+  }
+}
+
+.section-works {
+  background: transparent
+    linear-gradient(180deg, var(--clr-ter--light) 0%, var(--clr-white) 100%) 0%
+    0%;
+  margin-bottom: 25rem;
+  @include respond(phone) {
+    margin-bottom: 60rem;
+    height: 1000px;
+    height: 850px;
+    background: transparent
+      linear-gradient(180deg, var(--clr-ter--light) 50%, var(--clr-white) 100%)
+      0% 0%;
+  }
+  @media (max-width: 400px) {
+    height: 1000px;
+    margin-bottom: 30rem;
+  }
+}
+
+.section-benefits {
+  background: transparent
+    linear-gradient(180deg, var(--clr-ter--light) 0%, var(--clr-white) 100%) 0%
+    0%;
+}
+
+.footer {
+  background-color: var(--clr-ter--dark);
+}

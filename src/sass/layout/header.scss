@@ -1,0 +1,112 @@
+.header {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 47.95em) {
+      flex-direction: column;
+    }
+  }
+
+  &__left {
+    display: grid;
+    grid-template-rows: repeat(3, max-content);
+    grid-template-columns: repeat(2, max-content);
+    @include respond(phone) {
+      grid-template-columns: repeat(2, minmax(23rem, 1fr));
+      grid-template-rows: repeat(2, min-content) repeat(1, 9rem);
+      justify-items: center;
+      align-items: start;
+    }
+    @media (max-width: 23.4em) {
+      grid-template-columns: repeat(2, minmax(20rem, 1fr));
+    }
+
+    .headline {
+      grid-column: 1/-1;
+      @include respond(tab-port) {
+        text-align: center;
+        line-height: 7rem;
+      }
+      @include respond(phone) {
+        text-align: center;
+      }
+    }
+    .subtitle {
+      grid-column: 1/-1;
+      margin: 1.5rem 0 3.5rem 0;
+      @include respond(tab-port) {
+        text-align: center;
+      }
+      @include respond(tab-port) {
+        text-align: center;
+      }
+      @include respond(phone) {
+        margin: 1rem 0 0 0;
+        line-height: 4.2rem;
+      }
+    }
+    .header__btn {
+      @include respond(phone) {
+        width: 80%;
+        height: 100%;
+        margin-top: 25px;
+      }
+      &--left {
+        @include respond(phone) {
+          grid-column: 1/2;
+          grid-row: 3/4;
+          margin-top: 25px;
+          justify-self: end;
+          margin-right: 1.2rem;
+        }
+      }
+
+      &--right {
+        @include respond(phone) {
+          grid-column: 2/3;
+          grid-row: 3/4;
+          justify-self: start;
+          margin-right: 1.2rem;
+        }
+      }
+    }
+  }
+
+  &__right {
+    display: grid;
+
+    .img-mover {
+      width: 50rem;
+      @media (max-width: 47.95em) {
+        display: none;
+      }
+    }
+  }
+
+  &__clipper {
+    transform: translate(-1rem, 1rem);
+    width: 104%;
+    @include respond(xl-desk) {
+      transform: translate(-1rem, 2rem);
+    }
+
+    &--curved-bottom {
+      transform: translateY(1rem);
+      width: 100%;
+
+      @include respond(xl-desk) {
+        transform: translateY(0);
+      }
+      @include respond(phone) {
+        transform: translateY(0);
+      }
+    }
+  }
+}

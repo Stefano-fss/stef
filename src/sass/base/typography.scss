@@ -1,0 +1,55 @@
+body {
+  font-family: var(--default-font);
+  color: black;
+  padding: 0rem;
+  font-size: var(--default-font-size);
+  line-height: var(--default-line-height);
+}
+
+// ========== Header Utilites ===========
+.h1-text {
+  font-size: var(--h1-font);
+  line-height: 9rem;
+}
+
+.h2-text {
+  font-size: var(--h2-font);
+  @include respond(phone){
+    text-align: center;
+    line-height: 6rem;
+  }
+}
+
+.h3-text {
+  font-size: var(--h3-font);
+}
+
+.h4-text {
+  font-size: var(--h4-font);
+}
+
+// ========= text color =======
+.text-white {
+  color: var(--clr-white);
+}
+
+// ======= Header ===========
+.header {
+  .headline {
+    color: var(--clr-white);
+  }
+  .subtitle {
+    color: var(--clr-white);
+    font-weight: 300;
+  }
+}
+
+//  ===== h2 section titles ========
+.section__title {
+  font-weight: bold;
+
+  &--orange {
+    color: var(--clr-pri);
+    text-decoration: none;
+  }
+}

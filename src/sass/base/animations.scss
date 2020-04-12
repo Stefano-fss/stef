@@ -1,0 +1,55 @@
+.navbar-animation {
+  position: absolute;
+  background-color: var(--clr-pri);
+  width: 100%;
+  transition: all 2s;
+  .navbar-dropdown {
+    @include navbar-dropdown;
+    animation: navbar-dropdown 1s;
+    position: fixed;
+    background-color: var(--navbar-grey);
+    box-shadow: var(--shadow);
+    transition: all 1s;
+    width: 100%;
+    z-index: 9999;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    @include respond(phone) {
+      animation: navbar-dropdown 500ms;
+      transition: all 500ms;
+    }
+  }
+
+  .hidden {
+    visibility: hidden;
+    transition: all;
+  }
+}
+
+.scroll--top {
+  background: lighten($--clr-black, 17%);
+  position: fixed;
+  bottom: 16px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+  z-index: 9999;
+
+  &.active {
+    outline: none;
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .up-arrow {
+    width: 2.5rem;
+  }
+}

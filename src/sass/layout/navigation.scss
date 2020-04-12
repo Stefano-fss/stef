@@ -1,0 +1,118 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 600ms all;
+
+  &__logo--icon {
+    width: 4.6rem;
+  }
+
+  &__logo--name {
+    width: 15rem;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .navbar__btn.btn.btn--sm.btn--trans.btn--brd-blue.flex--center {
+      margin-right: 2rem;
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+
+    .navbar__btn.btn.btn--sm.btn--blue.flex--center {
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+
+    // =========== JS Custom Navbar ===============
+    .toggle-btn {
+      display: none;
+      cursor: pointer;
+    }
+
+    .toggle-btn-visible {
+      display: block;
+    }
+
+    .toggle-target-hidden {
+      display: none;
+    }
+
+    .toggle-target-expanded {
+      display: block;
+    }
+
+    //  ============= Ham Menu and Dropdow ==================
+    .nav__menu {
+      position: absolute;
+      top: 100%;
+      background: lighten($--navbar-grey, 1%);
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+      border: solid lightgrey 1px;
+      border-width: 0 1px 1px;
+      z-index: 999;
+      width: 100%;
+      right: 0;
+
+      .navbar__list-group {
+        list-style: none;
+
+        .navbar__list--items {
+          color: black;
+          text-align: center;
+          padding: 22px;
+          border-top: solid 1px darkgray;
+
+          &:hover {
+            color: var(--clr-white);
+            background-color: var(--clr-sec);
+            &:not(:first-child):hover {
+              border: currentColor 1px;
+              @include respond(phone) {
+                border: 0px;
+              }
+            }
+            @include respond(phone) {
+              background-color: lighten($--navbar-grey, 1%);
+              color: black;
+            }
+          }
+          &:active {
+            @include respond(phone) {
+              color: var(--clr-pri);
+              &:not(:first-child):active {
+                @include respond(phone) {
+                  border: currentColor 1px;
+                }
+              }
+            }
+          }
+        }
+        .navbar__list--links {
+          color: var(--clr-black);
+          text-decoration: none;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: var(--default-font-size);
+        }
+      }
+    }
+
+    .ham-menu {
+      width: 2.8rem;
+      cursor: pointer;
+      color: var(--clr-ter--dark);
+      position: relative;
+      display: none;
+      @include respond(tab-port) {
+        display: unset;
+      }
+    }
+  }
+}
